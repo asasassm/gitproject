@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">gitproject</string>
+
+    <string name="Class_name">수업 이름</string>
+</resources>
