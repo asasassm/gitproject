@@ -2,14 +2,14 @@ package kr.ac.kyungnam.android.gitproject
 
 import android.content.Context
 import android.content.Intent
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 
 
 class addschedule : AppCompatActivity() {
@@ -91,20 +91,14 @@ lateinit var btndelete : Button
             startActivity(intent)
         }
 
+
         btninsert.setOnClickListener{
             sqlDB = myHelper.writableDatabase
             sqlDB.execSQL("INSERT INTO scheduleDB VALUES('"+ edtName.text.toString()+"','"+edtRoom.text.toString()+"','"+sptextday.text.toString()+"','"+sptexttime.text.toString()+ "');")
             sqlDB.close()
-
             Toast.makeText(applicationContext,"저장완료",Toast.LENGTH_SHORT).show()
-
-
-
             val intent = Intent(applicationContext,MainActivity::class.java)
             startActivity(intent)
-
-
-
         }
         btnreset.setOnClickListener{
             sqlDB = myHelper.writableDatabase
